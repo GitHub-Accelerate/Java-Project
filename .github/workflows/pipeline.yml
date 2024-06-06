@@ -1,0 +1,19 @@
+name: CI/CD
+
+on: [push]
+
+jobs:
+  pipeline:
+    name: Pipeline
+    uses: GitHub-Accelerate/GH-Workflows/.github/workflows/java_pipeline.yml@main
+    with:
+      foo: 'hello'
+      bar: 'world'
+    secrets: inherit
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read var
+        run: |
+          echo Hi :-)
