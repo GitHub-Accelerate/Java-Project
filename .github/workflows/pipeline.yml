@@ -7,7 +7,7 @@ jobs:
     name: Pipeline
     uses: GitHub-Accelerate/GH-Workflows/.github/workflows/java_pipeline.yml@main
     with:
-      java_version: '17'
+      java-version: '17'
     secrets: inherit
 
   file-existence-check:
