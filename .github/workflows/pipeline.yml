@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: Build
         run: |
-          echo Hi :-)
+          echo "Hi :-)"
