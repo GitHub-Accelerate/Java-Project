@@ -13,6 +13,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Read var
+      - name: Build
         run: |
           echo Hi :-)
