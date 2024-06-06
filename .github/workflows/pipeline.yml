@@ -7,8 +7,6 @@ jobs:
     name: Pipeline
     uses: GitHub-Accelerate/GH-Workflows/.github/workflows/java_pipeline.yml@main
     with:
-      foo: 'hello'
-      bar: 'world'
       java_version: '16'
     secrets: inherit
 
