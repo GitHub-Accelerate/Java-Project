@@ -10,9 +10,20 @@ jobs:
       java_version: '17'
     secrets: inherit
 
-  test:
+  file-existence-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
+      - name: Verify file present
         run: |
-          echo "Hi :-)"
+          echo "Will test for important files that may be missing"
+
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v3
+        with:
+          files: "manifest.yml"
+
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        # Only runs if all of the files exists
+        run: echo All files exists!
