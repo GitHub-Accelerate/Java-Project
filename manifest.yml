@@ -1,0 +1,10 @@
+project:
+  name: "My Java Project"
+  artifact:
+    name: example_java_app
+    version: 0.2.10-SNAPSHOT
+
+integrate:
+  build:
+    name: java
+    version: 17
