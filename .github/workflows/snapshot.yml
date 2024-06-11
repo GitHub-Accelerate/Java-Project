@@ -1,0 +1,38 @@
+name: Snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      createRelease:
+        description: 'Create a release'
+        required: true
+        type: boolean
+      deployEnv:
+        description: 'Deployment environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - qa
+        - prod
+      deployVersion:
+        description: 'Deployment version'
+        type: string
+        required: true
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Snapshot creation
+        run: |
+          echo "Creating a snapshot"
+          echo "----your inputs:----"
+          echo "Create release: $CREATE_RELEASE"
+          echo "Environment: $DEPLOY_ENV"
+          echo "Version: $DEPLOY_VERSION"
+        env:
+          CREATE_RELEASE: ${{ inputs.createRelease }}
+          DEPLOY_ENV: ${{ inputs.deployEnv }}
+          DEPLOY_VERSION: ${{ inputs.deployVersion }}
