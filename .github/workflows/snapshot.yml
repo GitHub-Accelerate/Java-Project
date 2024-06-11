@@ -23,16 +23,10 @@ on:
 
 jobs:
   snapshot:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Snapshot creation
-        run: |
-          echo "Creating a snapshot"
-          echo "----your inputs:----"
-          echo "Create release: $CREATE_RELEASE"
-          echo "Environment: $DEPLOY_ENV"
-          echo "Version: $DEPLOY_VERSION"
-        env:
-          CREATE_RELEASE: ${{ inputs.createRelease }}
-          DEPLOY_ENV: ${{ inputs.deployEnv }}
-          DEPLOY_VERSION: ${{ inputs.deployVersion }}
+    name: Snapshot
+    uses: GitHub-Accelerate/GH-Intermediate-Workflows/.github/workflows/snapshot.yml@main
+    with:
+      createRelease: ${{ inputs.createRelease }}
+      deployEnv: ${{ inputs.deployEnv }}
+      deployVersion: ${{ inputs.deployVersion }}
+    secrets: inherit
